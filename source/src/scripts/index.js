@@ -6,6 +6,18 @@ if (process.env.NODE_ENV === 'development') {
 
 window.addEventListener('DOMContentLoaded', function () {
 	'use strict';
+	const w = window;
+	const e = document.documentElement;
+	const b = document.getElementsByTagName('body')[0];
+	const x = w.innerWidth || e.clientWidth || b.clientWidth;
+
+	let container = document.querySelector('.container');
+
+	if (x < 500) {
+		let scale = x / 500;
+		container.style.transform = `scale(${scale})`;
+	}
+
 	// analog clock:
 	let hr = document.querySelector('#hr');
 	let mn = document.querySelector('#mn');
